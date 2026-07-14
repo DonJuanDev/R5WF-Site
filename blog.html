@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Novidades, dicas e notícias sobre películas R5WF: conforto térmico, legislação e tecnologia.">
+  <title>Blog, R5WF Películas Especiais</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav" id="nav"><div class="nav__container">
+    <a href="index.html" class="nav__logo" aria-label="R5WF Películas Especiais, página inicial">
+      <img src="Imagens/Logo%20R5WF.png" alt="R5WF Películas Especiais" class="nav__logo-img" width="768" height="338">
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="sobre.html" class="nav__link">Sobre nós</a></li>
+      <li><a href="automotiva.html" class="nav__link">Automotiva</a></li>
+      <li><a href="arquitetura.html" class="nav__link">Arquitetura</a></li>
+      <li><a href="lojas-oficiais.html" class="nav__link">Lojas R5WF</a></li>
+      <li><a href="blog.html" class="nav__link is-active" aria-current="page">Blog</a></li>
+    </ul>
+    <a href="lojas-oficiais.html" class="btn btn--nav">Solicitar Orçamento</a>
+    <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
+  </div></nav>
+
+  <header class="page-hero">
+    <div class="page-hero__bg"><img src="https://r5wf.com.br/wp-content/uploads/2025/06/peliculas-automotivas-e-arquitetonicas-site.png" alt=""><div class="page-hero__overlay"></div></div>
+    <div class="container page-hero__content">
+      <h1 class="page-hero__title">Novidades sobre a R5WF</h1>
+      <p class="page-hero__sub">Conteúdos sobre calor, legislação, produtos, eventos e dicas, baseados no blog oficial.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-section">
+      <div class="container">
+        <div class="blog-grid" id="blog-grid"></div>
+        <p class="section-header__sub" style="margin-top:32px;">Posts completos disponíveis em <a href="https://r5wf.com.br/blog/" target="_blank" rel="noopener noreferrer">r5wf.com.br/blog</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">&copy; <span id="footer-year">2026</span> R5WF</p></div></div></footer>
+  <script src="config.js"></script>
+  <script>
+    (function () {
+      var grid = document.getElementById('blog-grid');
+      if (!grid || !window.R5WF_BLOG) return;
+      grid.innerHTML = window.R5WF_BLOG.map(function (post) {
+        return '<article class="blog-card" data-animate="fade-in">' +
+          '<span class="blog-card__cat">' + post.category + '</span>' +
+          '<h2 class="blog-card__title">' + post.title + '</h2>' +
+          '<time class="blog-card__date" datetime="">' + post.date + '</time>' +
+          '<p class="blog-card__excerpt">' + post.excerpt + '</p>' +
+          '<a href="https://r5wf.com.br/blog/" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Leia mais</a>' +
+        '</article>';
+      }).join('');
+    })();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Películas arquitetônicas R5WF para casas, escritórios, vitrines e empresas. Diamond HD, Silver Plus, Security 100 e mais.">
+  <title>Arquitetura, R5WF Películas Especiais</title>
+  <link rel="canonical" href="https://r5wf.com.br/arquitetura/">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegação principal">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo" aria-label="R5WF Películas Especiais, página inicial">
+        <img src="Imagens/Logo%20R5WF.png" alt="R5WF Películas Especiais" class="nav__logo-img" width="768" height="338">
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="sobre.html" class="nav__link">Sobre nós</a></li>
+        <li><a href="automotiva.html" class="nav__link">Automotiva</a></li>
+        <li><a href="arquitetura.html" class="nav__link is-active" aria-current="page">Arquitetura</a></li>
+        <li><a href="lojas-oficiais.html" class="nav__link">Lojas R5WF</a></li>
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+      </ul>
+      <a href="lojas-oficiais.html" class="btn btn--nav">Solicitar Orçamento</a>
+      <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav__mobile" id="nav-mobile"><ul role="list">
+      <li><a href="sobre.html" class="nav__mobile-link">Sobre nós</a></li>
+      <li><a href="automotiva.html" class="nav__mobile-link">Automotiva</a></li>
+      <li><a href="arquitetura.html" class="nav__mobile-link is-active">Arquitetura</a></li>
+      <li><a href="lojas-oficiais.html" class="nav__mobile-link">Lojas R5WF</a></li>
+      <li><a href="blog.html" class="nav__mobile-link">Blog</a></li>
+    </ul></div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-hero__bg"><img src="https://r5wf.com.br/wp-content/uploads/2024/12/arquitetura.jpg" alt=""><div class="page-hero__overlay"></div></div>
+    <div class="container page-hero__content">
+      <nav class="breadcrumb" aria-label="Trilha"><a href="index.html">Início</a><span aria-hidden="true">/</span><span>Arquitetura</span></nav>
+      <h1 class="page-hero__title">Películas Arquitetônicas</h1>
+      <p class="page-hero__sub">Proteção para sua casa, escritório, varanda, sala comercial, empresa ou vitrine, com conforto térmico, privacidade e design.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-section">
+      <div class="container">
+        <div class="section-header" data-animate="slide-up">
+          <span class="eyebrow">Linhas residenciais e corporativas</span>
+          <h2 class="heading-xl">Soluções para cada ambiente</h2>
+        </div>
+        <div class="products-grid" id="produtos-arq-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">&copy; <span id="footer-year">2026</span> R5WF</p></div></div></footer>
+  <script src="config.js"></script>
+  <script>
+    (function () {
+      var grid = document.getElementById('produtos-arq-grid');
+      if (!grid || !window.R5WF_PRODUTOS_ARQ) return;
+      grid.innerHTML = window.R5WF_PRODUTOS_ARQ.map(function (p) {
+        return '<article class="product-card" data-animate="fade-in" style="grid-template-columns:1fr;">' +
+          '<div class="product-card__body">' +
+            '<h3 class="product-card__name">' + p.name + '</h3>' +
+            '<p class="product-card__line">Linha ' + p.line + '</p>' +
+            '<p class="product-card__feature-text">' + p.text + '</p>' +
+            '<p class="product-card__meta"><strong>Garantia de Fábrica:</strong> ' + p.garantia + '</p>' +
+            '<a href="' + p.boletim + '" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Veja o Boletim Técnico</a>' +
+          '</div></article>';
+      }).join('');
+    })();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

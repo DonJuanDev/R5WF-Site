@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Encontre lojas e Select Dealers R5WF em todo o Brasil. Telefone, Instagram, endereço e mapa.">
+  <title>Lojas R5WF, Películas Especiais</title>
+  <link rel="canonical" href="https://r5wf.com.br/onde-encontrar/">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegação principal">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo" aria-label="R5WF Películas Especiais, página inicial">
+        <img src="Imagens/Logo%20R5WF.png" alt="R5WF Películas Especiais" class="nav__logo-img" width="768" height="338">
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="sobre.html" class="nav__link">Sobre nós</a></li>
+        <li><a href="automotiva.html" class="nav__link">Automotiva</a></li>
+        <li><a href="arquitetura.html" class="nav__link">Arquitetura</a></li>
+        <li><a href="lojas-oficiais.html" class="nav__link is-active" aria-current="page">Lojas R5WF</a></li>
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+        <li><a href="https://portalcliente.r5wf.com.br/" class="nav__portal" target="_blank" rel="noopener noreferrer">Portal do Aplicador</a></li>
+      </ul>
+      <a href="lojas-oficiais.html" class="btn btn--nav">Solicitar Orçamento</a>
+      <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav__mobile" id="nav-mobile">
+      <ul role="list">
+        <li><a href="sobre.html" class="nav__mobile-link">Sobre nós</a></li>
+        <li><a href="automotiva.html" class="nav__mobile-link">Automotiva</a></li>
+        <li><a href="arquitetura.html" class="nav__mobile-link">Arquitetura</a></li>
+        <li><a href="lojas-oficiais.html" class="nav__mobile-link is-active">Lojas R5WF</a></li>
+        <li><a href="blog.html" class="nav__mobile-link">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-hero__bg">
+      <img src="https://r5wf.com.br/wp-content/uploads/2023/05/CrazyJuja_modern_house_with_a_red_car_in_front_without_backgrou_fa7e81bb-5f8f-4989-9414-cb8ae22f43b4.png" alt="">
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="container page-hero__content">
+      <nav class="breadcrumb" aria-label="Trilha"><a href="index.html">Início</a><span aria-hidden="true">/</span><span>Lojas R5WF</span></nav>
+      <h1 class="page-hero__title">Lojas R5WF</h1>
+      <p class="page-hero__sub">Select Dealers recomendados pela R5WF em todo o Brasil. Encontre a loja mais próxima, veja no mapa e entre em contato.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-section lojas-section" aria-labelledby="lojas-title">
+      <div class="container">
+        <div class="section-header" data-animate="slide-up">
+          <span class="eyebrow">Rede autorizada</span>
+          <h2 class="heading-xl" id="lojas-title">Encontre uma loja perto de você</h2>
+          <p class="section-header__sub" id="lojas-count">Carregando lojas…</p>
+        </div>
+
+        <div class="lojas-map-full" data-animate="fade-in">
+          <div class="lojas-map-full__bar">
+            <p class="lojas-map-full__hint" id="lojas-map-title">Todas as lojas R5WF no Brasil. Clique em um pin ou na lista para focar</p>
+            <div class="lojas-map-full__actions">
+              <button type="button" class="lojas-map-full__btn" id="lojas-map-reset" title="Ver todas as lojas">Ver todas</button>
+              <a href="#" class="lojas-map-full__btn" id="lojas-map-link" target="_blank" rel="noopener noreferrer" hidden>Como chegar</a>
+              <button type="button" class="lojas-map-full__btn lojas-map-full__btn--icon" id="lojas-map-fs" title="Tela cheia" aria-label="Mapa em tela cheia">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="lojas-map-full__canvas" id="lojas-map" role="application" aria-label="Mapa com todas as lojas R5WF no Brasil"></div>
+        </div>
+
+        <div class="lojas-body" data-animate="slide-up">
+          <div class="aplicadores-toolbar lojas-toolbar">
+            <div class="field">
+              <label for="lojas-state">Estado</label>
+              <select id="lojas-state"><option value="">Todos os estados</option></select>
+            </div>
+            <div class="field">
+              <label for="lojas-city">Cidade</label>
+              <select id="lojas-city"><option value="">Todas as cidades</option></select>
+            </div>
+            <div class="field">
+              <label for="lojas-search">Buscar</label>
+              <input type="search" id="lojas-search" placeholder="Nome, endereço ou código">
+            </div>
+          </div>
+
+          <div class="lojas-list" id="lojas-list" aria-live="polite"></div>
+
+          <p class="lojas-help">Não encontrou uma loja próxima? <a href="tel:08000063330">Entre em contato conosco</a> pelo 0800 006 3330.</p>
+        </div>
+
+        <div class="stores-editorial" style="margin-top:48px;" data-animate="slide-up">
+          <h2 class="stores-editorial__title">Matriz R5WF</h2>
+          <div class="stores-editorial__content">
+            <p><strong>R5 Window Film Importação e Distribuição de Películas LTDA</strong><br>
+            CNPJ: 21.278.547/0001-23<br>
+            Rua Professora Regina Maria da Silva Waltrick Ramos, 340, Serraria<br>
+            São José, SC · 88113-140 · <a href="tel:08000063330">0800 006 3330</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-final" style="min-height:50vh;">
+      <div class="cta-final__content">
+        <h2 class="cta-final__headline">Seja um Select Dealer</h2>
+        <p class="cta-final__sub">Tenha o melhor produto de película na sua loja.</p>
+        <div class="cta-final__actions">
+          <a href="https://mkt.r5wf.com.br/seja-um-select-dealer" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">Fale com um consultor para Lojistas</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">&copy; <span id="footer-year">2026</span> R5WF</p></div></div></footer>
+
+  <script src="config.js"></script>
+  <script src="data/lojas.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>
