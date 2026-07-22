@@ -676,7 +676,12 @@
 
       listEl.innerHTML = filtered.map(function (item) {
         var tel = phoneHref(item.phone);
+        var badgeSrc = (window.R5WF_CONFIG && window.R5WF_CONFIG.images && window.R5WF_CONFIG.images.selectDealerBadge) || 'Imagens/select-dealer-badge.png';
+        var badgeHtml = item.selectDealer
+          ? '<img src="' + badgeSrc + '" alt="Select Dealer R5WF" class="loja-card__badge" width="120" height="60" loading="lazy">'
+          : '';
         return '<article class="loja-card' + (item.id === activeId ? ' is-active' : '') + '" data-id="' + item.id + '" tabindex="0" role="button" aria-label="Focar ' + item.name + ' no mapa">' +
+          badgeHtml +
           '<div class="loja-card__head"><span class="loja-card__id">' + item.id + '</span><h3 class="loja-card__name">' + item.name + '</h3></div>' +
           '<p class="loja-card__meta">' + item.city + ' · ' + (item.stateName || item.state) + '<br>' + item.address + '</p>' +
           '<div class="loja-card__actions">' +

@@ -17,6 +17,7 @@ window.R5WF_CONFIG = {
   },
   images: {
     logo: "Imagens/Logo R5WF.png",
+    selectDealerBadge: "Imagens/select-dealer-badge.png",
     automotivaHero: "https://r5wf.com.br/wp-content/uploads/2024/12/automotivo.jpg",
     arquiteturaHero: "https://r5wf.com.br/wp-content/uploads/2024/12/arquitetura.jpg",
     visibilidade: "https://r5wf.com.br/wp-content/uploads/2023/06/site-r5.png",
